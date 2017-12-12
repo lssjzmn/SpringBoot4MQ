@@ -44,7 +44,6 @@ public class MessageReceiveController implements MessageReceiveListener {
             public void run() {
                 while (isRunning) {
                     try {
-                        logger.info("msgBlockingQueue size is :" + msgBlockingQueue.size());
                         Object msgObject = msgBlockingQueue.take();
                     } catch (InterruptedException e) {
                         logger.error("msgHandlerThread take message but encountered a InterruptedException", e);

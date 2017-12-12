@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BootMQ.iml" filepath="$PROJECT_DIR$/BootMQ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bootMQ.iml" filepath="$PROJECT_DIR$/bootMQ.iml" />
     </modules>
   </component>
 </project>

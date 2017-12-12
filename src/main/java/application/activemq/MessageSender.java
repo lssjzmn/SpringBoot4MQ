@@ -10,6 +10,7 @@ import javax.jms.JMSException;
 import javax.jms.MapMessage;
 import javax.jms.Message;
 import javax.jms.Session;
+import java.util.Map;
 
 @Component
 public class MessageSender {
@@ -31,6 +32,10 @@ public class MessageSender {
                 return mapMessage;
             }
         });
+    }
+
+    public void sendMessage(Map<String,Object> msgDataSource) {
+
     }
 
     public void setJmsTemplate(JmsTemplate jmsTemplate) {
