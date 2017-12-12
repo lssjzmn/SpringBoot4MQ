@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="activeMqConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="${jms.property.broker.url}"/>
+        <property name="useAsyncSend" value="true"/>
+        <property name="trustAllPackages" value="true"/>
+    </bean>
+
+    <bean id="connectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+        <constructor-arg index="0" ref="activeMqConnectionFactory"/>
+    </bean>
+
+    <bean id="defaultDestinationTopic" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg value="${jms.property.destination.topic}"/>
+    </bean>
+
+    <bean id="defaultDestinationTopicSending" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg value="${jms.property.destination.topic.sending}"/>
+    </bean>
+
+    <bean id="jmsTemplateBoot" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="defaultDestination" ref="defaultDestinationTopicSending"/>
+    </bean>
+
+    <bean id="messageReceiver" class="application.activemq.MessageReceiver"/>
+
+    <bean id="messageReceiverListener" class="org.springframework.jms.listener.SimpleMessageListenerContainer">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="destination" ref="defaultDestinationTopic"/>
+        <property name="pubSubDomain" value="true"/>
+        <property name="messageListener" ref="messageReceiver"/>
+    </bean>
+
+</beans>
