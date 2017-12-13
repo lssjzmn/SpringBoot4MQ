@@ -18,14 +18,14 @@ public class GpsCoordinateUtils {
      说明:该类的delta方法可以将高德地图SDK获取到的GPS经纬度转换为真实的经纬度。
      ****************************/
 
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
 
         GpsCoordinateUtils wg = new GpsCoordinateUtils();
 
 //            HashMap<String, Double> hm = wg.convertAmap2GpsPoint(38.123456,114.654321);
 
 //            System.out.println(hm);
-    }
+    }*/
 
     //圆周率 GCJ_02_To_WGS_84
     double PI = 3.14159265358979324;

@@ -39,6 +39,7 @@ public class MessageSenderController {
                         message.setDouble("postionX", 32.011);
                         message.setDouble("postionY", 112.001);
                         logger.info("messageSender send message", message);
+                        System.out.println("messageSender send message" + message.toString());
                         return message;
                     }
                 });
