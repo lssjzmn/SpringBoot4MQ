@@ -39,26 +39,29 @@ public class MessageReceiveController implements MessageReceiveListener {
     @PostConstruct
     private void msgHandlerThread() {
         registerListener();
-        final Thread msgHandlerThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (isRunning) {
-                    try {
-                        Object msgObject = msgBlockingQueue.take();
-                    } catch (InterruptedException e) {
-                        logger.error("msgHandlerThread take message but encountered a InterruptedException", e);
-                    }
-
-                }
-            }
-        });
-        msgHandlerThread.start();
+        final Thread messageHandlerThread = new MessageHandlerThread();
+        messageHandlerThread.start();
     }
 
     @PreDestroy
     private void stopMsgHandler() {
         isRunning = false;
         messageReceiver.removeListener(this);
+    }
+
+    class MessageHandlerThread extends Thread {
+        @Override
+        public void run() {
+            while (isRunning) {
+                try {
+                    Object msgObject = msgBlockingQueue.take();
+                    logger.info("MessageHandlerThread take a message...");
+                } catch (InterruptedException e) {
+                    logger.error("msgHandlerThread take message but encountered a InterruptedException", e);
+                }
+
+            }
+        }
     }
 
     private void registerListener() {

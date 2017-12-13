@@ -26,7 +26,6 @@ public class MessageReceiver implements MessageListener {
     }
 
     private void processMessage(Message message) {
-        logger.info("MessageReceiver processMessage --> " + message.toString());
         for (MessageReceiveListener messageReceiveListener : listeners) {
             messageReceiveListener.onMessageReceived(message);
         }
