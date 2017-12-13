@@ -22,7 +22,7 @@ public class MessageReceiver extends MessageReceiveController implements Message
         onMessageReceived(message);
     }
 
-    private void processMessage(Message message) {
+    private void notifyMessageListeners(Message message) {
         for (MessageReceiveListener messageReceiveListener : listeners) {
             messageReceiveListener.onMessageReceived(message);
         }
