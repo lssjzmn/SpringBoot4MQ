@@ -5,15 +5,13 @@ import application.listeners.MessageReceiveListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.jms.Message;
 import java.util.concurrent.LinkedBlockingQueue;
 
-@Component
-public class MessageReceiveController implements MessageReceiveListener {
+public abstract class MessageReceiveController implements MessageReceiveListener {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -55,7 +53,7 @@ public class MessageReceiveController implements MessageReceiveListener {
             while (isRunning) {
                 try {
                     Object msgObject = msgBlockingQueue.take();
-                    logger.info("MessageHandlerThread take a message...");
+                    processMessage(msgObject);
                 } catch (InterruptedException e) {
                     logger.error("msgHandlerThread take message but encountered a InterruptedException", e);
                 }
@@ -63,6 +61,8 @@ public class MessageReceiveController implements MessageReceiveListener {
             }
         }
     }
+
+    public abstract void processMessage(Object mqMapMessage);
 
     private void registerListener() {
         if (messageReceiver != null) {
