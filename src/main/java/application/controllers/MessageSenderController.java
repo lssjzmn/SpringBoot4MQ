@@ -44,6 +44,6 @@ public class MessageSenderController {
                     }
                 });
             }
-        }, 5000, 1200);
+        }, 5000, 5000);
     }
 }
