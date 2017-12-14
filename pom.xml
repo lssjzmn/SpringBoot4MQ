@@ -6,7 +6,11 @@
 
     <groupId>com.lssjzmn.robot</groupId>
     <artifactId>bootMQ</artifactId>
+    <packaging>pom</packaging>
     <version>1.0.0-lssjzmn</version>
+    <modules>
+        <module>..</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

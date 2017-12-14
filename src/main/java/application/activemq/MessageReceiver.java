@@ -2,8 +2,11 @@ package application.activemq;
 
 import application.controllers.MessageReceiveController;
 import application.listeners.MessageReceiveListener;
+import application.pojobeans.DataEntity;
+import application.reposervice.DataEntityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.jms.MapMessage;
 import javax.jms.Message;
@@ -16,6 +19,9 @@ public class MessageReceiver extends MessageReceiveController implements Message
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     private List<MessageReceiveListener> listeners = new ArrayList<>();
+
+    @Autowired
+    DataEntityService dataEntityService;
 
     @Override
     public void onMessage(Message message) {
@@ -33,6 +39,9 @@ public class MessageReceiver extends MessageReceiveController implements Message
         if (mqMapMessage instanceof MapMessage) {
             MapMessage message = (MapMessage) mqMapMessage;
             logger.info("MessageHandlerThread take a message..." + message.toString());
+            DataEntity dataEntity = new DataEntity();
+            dataEntity.setContent("lssjzmndata");
+            dataEntityService.save(dataEntity);
         }
     }
 

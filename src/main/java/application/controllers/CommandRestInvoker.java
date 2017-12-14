@@ -30,7 +30,7 @@ public abstract class CommandRestInvoker {
         if (requestUrl == null)
             return;
         ResponseEntity<Object> responseEntity = restTemplate.getForEntity(SERVER_URL + requestUrl, Object.class);
-        if (responseEntity.getBody() == null) {
+        if (responseEntity.getBody() != null) {
             processResponse(responseEntity.getBody());
         } else {
             logger.error(responseEntity.toString());
