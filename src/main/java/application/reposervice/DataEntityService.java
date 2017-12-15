@@ -30,8 +30,24 @@ public class DataEntityService {
         dataRepository.delete(dataEntity);
     }
 
-    public DataEntity get(Integer id) {
+    public DataEntity getOne(Integer id) {
         return dataRepository.findOne(id);
+    }
+
+    public Iterable<DataEntity> getAll() {
+        return dataRepository.findAll();
+    }
+
+    public Iterable<DataEntity> getContentEquals(String content) {
+        return dataRepository.findByContentEquals(content);
+    }
+
+    public Iterable<DataEntity> getContentContains(String content) {
+        return dataRepository.findByContentContains(content);
+    }
+
+    public Iterable<DataEntity> getContentNot(String content) {
+        return dataRepository.findByContentIsNot(content);
     }
 
     public void exists(Integer id) {

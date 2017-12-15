@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.jms.JMSException;
 import javax.jms.MapMessage;
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -35,13 +36,15 @@ public class MessageReceiver extends MessageReceiveController implements Message
     }
 
     @Override
-    public void processMessage(Object mqMapMessage) {
+    public void processMessage(Object mqMapMessage) throws JMSException {
         if (mqMapMessage instanceof MapMessage) {
             MapMessage message = (MapMessage) mqMapMessage;
             logger.info("MessageHandlerThread take a message..." + message.toString());
             DataEntity dataEntity = new DataEntity();
-            dataEntity.setContent("lssjzmndata");
+            dataEntity.setContent(message.getString("name") + "lssjzmndata");
             dataEntityService.save(dataEntity);
+            Iterable<DataEntity> dataEntityList = dataEntityService.getContentContains("lssjzmndata");
+            System.out.println(dataEntityList.toString());
         }
     }
 

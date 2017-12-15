@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.jms.JMSException;
 import javax.jms.Message;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -56,13 +57,14 @@ public abstract class MessageReceiveController implements MessageReceiveListener
                     processMessage(msgObject);
                 } catch (InterruptedException e) {
                     logger.error("msgHandlerThread take message but encountered a InterruptedException", e);
+                } catch (JMSException e) {
+                    logger.error("messageHandlerThread throws JMSException", e);
                 }
-
             }
         }
     }
 
-    public abstract void processMessage(Object mqMapMessage);
+    public abstract void processMessage(Object mqMapMessage) throws JMSException;
 
     private void registerListener() {
         if (messageReceiver != null) {
