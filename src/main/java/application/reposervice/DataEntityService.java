@@ -50,6 +50,10 @@ public class DataEntityService {
         return dataRepository.findByContentIsNot(content);
     }
 
+    public DataEntity getTopContentEndsWith(String content) {
+        return dataRepository.findTopByContentEndsWith(content);
+    }
+
     public void exists(Integer id) {
         dataRepository.exists(id);
     }

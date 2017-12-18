@@ -4,6 +4,7 @@ import application.controllers.MessageReceiveController;
 import application.listeners.MessageReceiveListener;
 import application.pojobeans.DataEntity;
 import application.reposervice.DataEntityService;
+import application.reposervice.RedisDataService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class MessageReceiver extends MessageReceiveController implements Message
 
     @Autowired
     DataEntityService dataEntityService;
+
+    @Autowired
+    RedisDataService redisDataService;
 
     @Override
     public void onMessage(Message message) {
@@ -45,6 +49,7 @@ public class MessageReceiver extends MessageReceiveController implements Message
             dataEntityService.save(dataEntity);
             Iterable<DataEntity> dataEntityList = dataEntityService.getContentContains("lssjzmndata");
             System.out.println(dataEntityList.toString());
+            redisDataService.set("redisKeyName","redisValue" + "redisdata");
         }
     }
 

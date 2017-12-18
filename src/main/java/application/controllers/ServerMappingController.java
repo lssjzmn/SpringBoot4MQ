@@ -15,11 +15,11 @@ public class ServerMappingController {
 
     @RequestMapping(value = "/getobject", method = RequestMethod.GET)
     public Object getObjectFromServer() {
-        return null;
+        return "Object";
     }
 
     @RequestMapping(value = "/postobject", method = RequestMethod.POST)
-    public Object postObjectFromServer(@RequestBody Object object) {
-        return null;
+    public String postObjectFromServer(@RequestBody String object) {
+        return "success";
     }
 }
