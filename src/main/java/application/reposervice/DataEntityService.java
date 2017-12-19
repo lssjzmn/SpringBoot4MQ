@@ -3,6 +3,8 @@ package application.reposervice;
 import application.pojobeans.DataEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -11,24 +13,28 @@ import java.util.List;
 
 @Service
 @Transactional
-@CacheConfig(cacheNames = "dataEntityRedisCache")
+@CacheConfig(cacheNames = "dataEntityCaches")
 public class DataEntityService {
 
     @Autowired
     private DataRepository dataRepository;
 
-    public void save(DataEntity dataEntity) {
-        dataRepository.save(dataEntity);
+    @CachePut(key = "#dataEntity.getId()")
+    public DataEntity save(DataEntity dataEntity) {
+        return dataRepository.save(dataEntity);
     }
 
-    public void save(List<DataEntity> dataEntitys) {
-        dataRepository.save(dataEntitys);
+    @CachePut
+    public List<DataEntity> save(List<DataEntity> dataEntitys) {
+        return (List<DataEntity>) dataRepository.save(dataEntitys);
     }
 
+    @CacheEvict
     public void delete(Integer id) {
         dataRepository.delete(id);
     }
 
+    @CacheEvict
     public void delete(DataEntity dataEntity) {
         dataRepository.delete(dataEntity);
     }
