@@ -1,4 +1,4 @@
-package application.reposervice;
+package application.redis;
 
 import org.springframework.stereotype.Repository;
 

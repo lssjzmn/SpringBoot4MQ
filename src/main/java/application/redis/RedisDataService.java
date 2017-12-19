@@ -1,4 +1,4 @@
-package application.reposervice;
+package application.redis;
 
 import application.utils.JSONUtil;
 import org.springframework.beans.factory.annotation.Autowired;

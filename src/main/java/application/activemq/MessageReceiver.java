@@ -4,7 +4,7 @@ import application.controllers.MessageReceiveController;
 import application.listeners.MessageReceiveListener;
 import application.pojobeans.DataEntity;
 import application.reposervice.DataEntityService;
-import application.reposervice.RedisDataService;
+import application.redis.RedisDataService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +28,8 @@ public class MessageReceiver extends MessageReceiveController implements Message
     @Autowired
     RedisDataService redisDataService;
 
+    private int cnt = 1;
+
     @Override
     public void onMessage(Message message) {
         onMessageReceived(message);
@@ -47,9 +49,16 @@ public class MessageReceiver extends MessageReceiveController implements Message
             DataEntity dataEntity = new DataEntity();
             dataEntity.setContent(message.getString("name") + "lssjzmndata");
             dataEntityService.save(dataEntity);
-            Iterable<DataEntity> dataEntityList = dataEntityService.getContentContains("lssjzmndata");
-            System.out.println(dataEntityList.toString());
-            redisDataService.set("redisKeyName","redisValue" + "redisdata");
+            logger.info("#####第一次读取： " + dataEntityService.getOne(1000).getId());
+            logger.info("#####第二次读取： " + dataEntityService.getOne(1001).getId());
+            logger.info("#####第三次读取： " + dataEntityService.getOne(1002).getId());
+            logger.info("#####第四次读取： " + dataEntityService.getOne(1003).getId());
+            logger.info("#####第五次读取： " + dataEntityService.getOne(1004).getId());
+            Long time0 = System.currentTimeMillis();
+            logger.info("#####第六次读取： " + ((List) dataEntityService.getAll()).size());
+            Long time1 = System.currentTimeMillis();
+            System.out.println("###############" + (time1 - time0));
+            //redisDataService.set("redisKeyName" + cnt++, "redisValue");
         }
     }
 
