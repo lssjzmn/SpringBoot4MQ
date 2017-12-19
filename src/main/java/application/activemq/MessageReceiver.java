@@ -55,7 +55,7 @@ public class MessageReceiver extends MessageReceiveController implements Message
             logger.info("#####第四次读取： " + dataEntityService.getOne(1003).getId());
             logger.info("#####第五次读取： " + dataEntityService.getOne(1004).getId());
             Long time0 = System.currentTimeMillis();
-            logger.info("#####第六次读取： " + ((List) dataEntityService.getAll()).size());
+            logger.info("#####第六次读取： " + ((List) dataEntityService.getAllCache()).size());
             Long time1 = System.currentTimeMillis();
             System.out.println("###############" + (time1 - time0));
             //redisDataService.set("redisKeyName" + cnt++, "redisValue");
