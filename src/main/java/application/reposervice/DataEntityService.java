@@ -39,13 +39,13 @@ public class DataEntityService {
         dataRepository.delete(dataEntity);
     }
 
-    @Cacheable
+    @Cacheable(value = "dataEntityCaches")
     public DataEntity getOne(Integer id) {
         return dataRepository.findOne(id);
     }
 
     /*getAll方法不加缓存900+ms，加了缓存20+ms*/
-    @Cacheable
+    @Cacheable(value = "dataEntityCaches")
     public Iterable<DataEntity> getAllCache() {
         return dataRepository.findAll();
     }
