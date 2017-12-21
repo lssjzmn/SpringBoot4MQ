@@ -4,12 +4,10 @@ import application.listeners.FtpReceiveListener;
 import org.apache.camel.Exchange;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
-import org.apache.camel.component.file.GenericFileMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,9 +21,7 @@ public class FtpProcessor implements Processor {
     @Override
     public void process(Exchange exchange) throws Exception {
         Message message = exchange.getIn();
-        GenericFileMessage<FileInputStream> fileMessage = (GenericFileMessage<FileInputStream>) message;
-        FileInputStream fileInputStream = fileMessage.getGenericFile().getFile();
-        notifyFtpListeners(fileInputStream);
+        notifyFtpListeners(message);
     }
 
     private void notifyFtpListeners(Object object) {
