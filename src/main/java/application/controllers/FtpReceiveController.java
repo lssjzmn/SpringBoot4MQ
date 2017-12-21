@@ -21,6 +21,7 @@ public class FtpReceiveController implements FtpReceiveListener {
     FtpProcessor ftpProcessor;
 
     @Override
+    @SuppressWarnings("unchecked")
     public void onFtpReceived(Object object) {
         if (object instanceof Message) {
             GenericFileMessage<RandomAccessFile> fileMessage = (GenericFileMessage<RandomAccessFile>) object;
