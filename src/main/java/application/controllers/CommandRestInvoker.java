@@ -27,7 +27,7 @@ public abstract class CommandRestInvoker {
     }
 
     public void invokeGetCommand(String requestUrl) {
-        if (requestUrl == null)
+        if (requestUrl != null)
             return;
         ResponseEntity<Object> responseEntity = restTemplate.getForEntity(SERVER_URL + requestUrl, Object.class);
         if (responseEntity.getBody() != null) {

@@ -15,6 +15,24 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: net.sf.json-lib:json-lib:jdk15:2.4" level="project" />
+    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.9.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.5" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.ezmorph:ezmorph:1.0.6" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.7" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.camel:camel-ftp-starter:2.18.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.camel:camel-ftp:2.18.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.camel:camel-core:2.18.1" level="project" />
+    <orderEntry type="library" name="Maven: com.jcraft:jsch:0.1.54" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.xml.bind:jaxb-core:2.2.11" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.xml.bind:jaxb-impl:2.2.11" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.camel:camel-core-starter:2.18.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.ben-manes.caffeine:caffeine:2.3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.camel:camel-spring-boot-starter:2.18.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.camel:camel-spring-boot:2.18.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.camel:camel-spring:2.18.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-net:commons-net:3.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web-services:1.4.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:1.4.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:1.4.0.RELEASE" level="project" />
@@ -34,6 +52,11 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-oxm:4.3.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.ws:spring-ws-core:2.3.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.ws:spring-xml:2.3.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.json-lib:json-lib:jdk15:2.4" level="project" />
+    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.9.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.5" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.ezmorph:ezmorph:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:4.3.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.3.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.3.2.RELEASE" level="project" />
@@ -85,6 +108,11 @@
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:1.12.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.21" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:4.3.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-redis:1.4.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-redis:1.7.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-keyvalue:1.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context-support:4.3.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: redis.clients:jedis:2.8.2" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.1" level="project" />
@@ -94,8 +122,22 @@
     <orderEntry type="library" name="Maven: com.fasterxml.woodstox:woodstox-core:5.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.7" level="project" />
     <orderEntry type="library" name="Maven: org.apache.ftpserver:ftpserver-core:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.ftpserver:ftplet-api:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.mina:mina-core:2.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.camel:camel-ftp-starter:2.18.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.camel:camel-ftp:2.18.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.camel:camel-core:2.18.1" level="project" />
+    <orderEntry type="library" name="Maven: com.jcraft:jsch:0.1.54" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.xml.bind:jaxb-core:2.2.11" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.xml.bind:jaxb-impl:2.2.11" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.camel:camel-core-starter:2.18.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.ben-manes.caffeine:caffeine:2.3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.camel:camel-spring-boot-starter:2.18.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.camel:camel-spring-boot:2.18.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.camel:camel-spring:2.18.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-net:commons-net:3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-pool2:2.4.2" level="project" />
   </component>
 </module>
